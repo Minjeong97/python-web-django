@@ -6,36 +6,28 @@ key = '95b3753b13ee4da85b01fd219aed52e5'
 url = 'https://api.themoviedb.org/3/movie/popular?api_key=95b3753b13ee4da85b01fd219aed52e5&language=ko-KR'
 
 data = requests.get(url).json()
-# print(data)
 
-recm_data = ''
-title_lists = []
 
 def recommendation(title):
     search = requests.get(f'https://api.themoviedb.org/3/search/movie?api_key=95b3753b13ee4da85b01fd219aed52e5&query={title}').json()
+    movies = search['results']
     
-    
-    if search['results'] == list():
+    if not movies:
         return None
     
-    elif search['results'][0]['original_title'] == title:
-        movie_id = search['results'][0]['id']
+    elif movies[0]['original_title'] == title:
+        movie_id = movies[0]['id']
     
         recm_url = f'https://api.themoviedb.org/3/movie/{movie_id}/recommendations?api_key=95b3753b13ee4da85b01fd219aed52e5&language=ko-KR'
-        recm_data = requests.get(recm_url).json()
+        recm_movies = requests.get(recm_url).json()['results']
         
-        for n in range(len(recm_data)):
-            title_lists.append(recm_data['results'][n]['title'])
-            # map() 함수로 이름만 추출 가능
+        return list(map(lambda movie: movie['title'], recm_movies))
+
         
-        return title_lists
     else:
-        return list()
-            
-
+        return []
     
-    # 여기에 코드를 작성합니다.  
-
+    
 
 if __name__ == '__main__':
     """

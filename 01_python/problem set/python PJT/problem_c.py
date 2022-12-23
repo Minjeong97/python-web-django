@@ -21,6 +21,7 @@ def vote_average_movies():
     
     return vote_eight
 
+
 def ranking():
     key_values = []
     values = []
@@ -32,6 +33,7 @@ def ranking():
         values.append(key_values[v:v+2])
         
     values.sort(key=lambda values: -values[1])
+    # values.sort(key=lambda values: values[1], reverse=True)
     
     return values[:5]
         

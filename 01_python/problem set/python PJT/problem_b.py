@@ -16,13 +16,23 @@ vote_eight = []
 
 def vote_average_movies():
     for idx in range(popular_count()):
-        if pop_results[idx]['vote_average'] > 8:
+        if pop_results[idx]['vote_average'] >= 8:
             vote_eight.append(pop_results[idx])
+            
+    return vote_eight
+        
+
+
+'''강사님 피드백
+def vote_average_movies():
+    for movie in pop_results:
+        if movie['vote_average'] > 8:
+            vote_eight.append(movie)
+            
+    # 'filter()' 로도 한 번 해보기!
     
     return vote_eight
-
-    
-    
+'''    
 
 
 '''
