@@ -1,0 +1,26 @@
+{% include 'base.html' %}
+
+{% block content %}
+
+<h1>New Article</h1>
+
+<form action="{% url 'blog:create' %}" method="POST">
+    {% csrf_token %}
+    <div>
+        <label for="title">title: </label>
+        <input id="title" name="title" type="text">
+    </div>
+
+    <div>
+        <label for="content">content: </label>
+        <textarea name="content" id="content" cols="30" rows="10"></textarea>
+    </div>
+
+    <div>
+        <input type="submit" value="save">
+    </div>
+</form>
+
+
+
+{% endblock content %}

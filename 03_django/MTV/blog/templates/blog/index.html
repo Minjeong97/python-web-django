@@ -1,0 +1,32 @@
+<!--blog/index.html-->
+
+{%  include 'base.html' %}
+
+{%  block content %}
+<h1>Index</h1>
+
+{% comment " 모든 게시글의 제목만 리스트로 확인" %}{% endcomment %}
+
+<ul>
+    {% comment %} 
+        Python like => Django Template Language (DTL) 
+        
+        DTL
+        - 괄호 없음
+        - 쉽표 없음
+        - 띄어쓰기로 구분        
+    {% endcomment %}
+
+    {%  for article in articles %}
+        <li>
+            <a href="{% url 'blog:detail' article.pk %}">{{ article.title }}</a>
+            {% comment %} 
+            <a href="/blog/{{ article.pk }}/">{{ article.title }}</a> 
+            {% endcomment %}
+        </li>
+    {% endfor %}     
+</ul>
+
+
+
+{%  endblock content %}

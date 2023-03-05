@@ -1,0 +1,29 @@
+{% include 'base.html' %}
+
+{% block content %}
+<h1>{{ posting.title }}</h1>
+
+<span>
+    {{ posting.created_at }}
+    {{ posting.updated_at}}
+</span>
+
+<p>
+    {{ posting.content }}
+</p>
+
+<div>
+    {% comment %} 
+    <a href="/blog/1/delete/"></a> 
+    {% endcomment %}
+    <a href="{% url 'board:edit' posting.pk  %}">
+        <button>delete</button>
+    </a>
+
+    <form action="{% url 'board:delete' posting.pk  %}" method="POST">
+        {% csrf_token %}
+        <input type="submit" value='delete'>
+    </form>
+</div>
+
+{% endlock content %}

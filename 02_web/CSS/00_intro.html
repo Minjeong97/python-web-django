@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS intro</title>
+    <style>
+        /* <!-- [ctrl + /] --> */
+
+        /* <head> Style Tag */
+        p.blue-medium {
+            font-size: 24px;
+            color: #0000ff;
+        /* 
+        <!-- 만약 아래와 같이 적으면 class에 한정되지 않고 모든 해당 명칭에 적용 -->
+        
+        .blue-medium {
+            font-size: 24px;
+            color: #0000ff;
+        
+            */        
+        }
+    </style>
+    <!-- link file .css -->
+    <link rel="stylesheet" href="./00_intro.css">
+</head>
+<body>
+    <!-- CSS 적용 3가지 방법-->
+    <!-- Inline CSS (X) -->
+    <p style="font-size: 24px; color: red;">This is Big Red</p>
+
+    <!-- Head Style Tag -->
+    <p class="blue-medium">This is Medium Blue</p>
+    <div class="blue-medium">
+        Div & Blue medium
+    </div>
+    <!-- File .css -->
+    <p class="green-small">This is Smoall Green</p>
+    <div class="green-small">
+        Div & green-small
+    </div>
+
+</body>
+</html>
+
